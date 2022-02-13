@@ -1,0 +1,6 @@
+Database connection is perfect.
+Socket is working.
+No Deadlock.
+Transactions are very fast.
+Query execution is perfect.
+Credentials are safe.

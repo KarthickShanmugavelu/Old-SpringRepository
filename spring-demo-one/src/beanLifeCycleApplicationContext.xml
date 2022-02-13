@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- Bean custom processor to handle calling destroy methods on prototype scoped beans -->
+        <bean id="customProcessor"
+    		class="com.app.springdemo.MyCustomBeanProcessor">
+   	</bean>
+
+	<!-- define dependency -->
+	<bean id="myFortune"
+		class="com.app.springdemo.HappyFortuneService"/>
+
+   	<bean id = "myCoach"
+   		class ="com.app.springdemo.TrackCoach" init-method = "myCustomInitMethod" scope="prototype">
+   		<!-- not needed since prototype scope needed only for singleton scope destroy-method="myCustomDestroyMethod"  --> 
+   		<!--defining constructor injection  -->
+   		<constructor-arg ref ="myFortune"></constructor-arg>
+ </bean>
+    
+</beans>
+
+
+
+
+
