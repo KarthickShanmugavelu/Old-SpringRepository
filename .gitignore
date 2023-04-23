@@ -1,1 +1,7 @@
 /.metadata/
+*.jar
+/*.jar
+*.mvn
+*.classpath
+*.DS_Store
+*.settings
